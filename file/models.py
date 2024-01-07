@@ -14,7 +14,7 @@ class User(AbstractUser):
         return self.email
 
 class FileShare(models.Model):
-    sender = models.ForeignKey(User, on_delete=models.CASCADE)
-    receiver = models.ForeignKey(User, on_delete=models.CASCADE)
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name="sender")
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name="receiver")
     file = models.FileField()
     timestamp = models.TimeField()
